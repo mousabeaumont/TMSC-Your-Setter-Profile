@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Muslim Setter Circle - Intake Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        
+        .form-content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        
+        .checkbox-item label,
+        .radio-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+        }
+        
+        .scale-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .scale-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .scale-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .scale-item label {
+            margin: 0;
+            font-weight: 500;
+            color: #667eea;
+        }
+        
+        .file-upload {
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background: #f8f9ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload:hover {
+            background: #eef1ff;
+            border-color: #764ba2;
+        }
+        
+        .file-upload input[type="file"] {
+            display: none;
+        }
+        
+        .file-upload-label {
+            cursor: pointer;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #856404;
+        }
+        
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .form-content {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .scale-group {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 The Muslim Setter Circle</h1>
+            <p>Your Setter Profile - Complete This Now</p>
+        </div>
+        
+        <div class="form-content">
+            <div class="note">
+                <strong>Important:</strong> This form helps Mousa understand exactly where you're at so he can customize his coaching to YOU. Be honest and detailed in your responses.
+            </div>
+
+            <div class="success-message" id="successMessage">
+                ✅ Your form has been saved! Mousa will review it and reach out within 24 hours.
+            </div>
+            
+            <form id="intakeForm">
+                <!-- Personal Information -->
+                <div class="section">
+                    <h2 class="section-title">Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="fullName">1. Full Name: *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">2. Email Address: *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">3. WhatsApp/Telegram Number: *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timezone">4. Time Zone: *</label>
+                        <select id="timezone" name="timezone" required>
+                            <option value="">Select your timezone</option>
+                            <option value="EST">EST - Eastern Standard Time</option>
+                            <option value="CST">CST - Central Standard Time</option>
+                            <option value="MST">MST - Mountain Standard Time</option>
+                            <option value="PST">PST - Pacific Standard Time</option>
+                            <option value="GMT">GMT - Greenwich Mean Time</option>
+                            <option value="CET">CET - Central European Time</option>
+                            <option value="EET">EET - Eastern European Time</option>
+                            <option value="AST">AST - Arabia Standard Time</option>
+                            <option value="IST">IST - India Standard Time</option>
+                            <option value="PKT">PKT - Pakistan Standard Time</option>
+                            <option value="AEST">AEST - Australian Eastern Standard Time</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">5. Location (City, Country): *</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., Dubai, UAE" required>
+                    </div>
+                </div>
+
+                <!-- Current Experience -->
+                <div class="section">
+                    <h2 class="section-title">Current Experience</h2>
+                    
+                    <div class="form-group">
+                        <label>6. What's your current experience level with appointment setting? *</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="exp1" name="experience" value="complete-beginner" required>
+                                <label for="exp1">Complete beginner (never set before)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="exp2" name="experience" value="beginner">
+                                <label for="exp2">Beginner (0-3 months experience)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="exp3" name="experience" value="intermediate">
+                                <label for="exp3">Intermediate (3-12 months experience)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="exp4" name="experience" value="advanced">
+                                <label for="exp4">Advanced (1+ years experience)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>7. Are you currently setting appointments for any offers? *</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="setting1" name="currentlySetting" value="yes" required>
+                                <label for="setting1">Yes (please specify below)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="setting2" name="currentlySetting" value="looking">
+                                <label for="setting2">No, I'm looking for my first offer</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="setting3" name="currentlySetting" value="let-go">
+                                <label for="setting3">No, I was recently let go</label>
+                            </div>
+                        </div>
+                        <input type="text" id="offerDetails" name="offerDetails" placeholder="If yes, list the offer(s) here" style="margin-top: 10px;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weeklyAppointments">8. On average, how many appointments are you booking per week?</label>
+                        <input type="text" id="weeklyAppointments" name="weeklyAppointments" placeholder="e.g., 15-20">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>9. What's your current show-up rate?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="show1" name="showUpRate" value="below-50">
+                                <label for="show1">Below 50%</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="show2" name="showUpRate" value="50-65">
+                                <label for="show2">50-65%</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="show3" name="showUpRate" value="65-80">
+                                <label for="show3">65-80%</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="show4" name="showUpRate" value="80-plus">
+                                <label for="show4">80%+</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="show5" name="showUpRate" value="not-sure">
+                                <label for="show5">Not sure/Not applicable</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>10. Have you ever been let go from an offer? *</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="letgo1" name="letGo" value="yes" required>
+                                <label for="letgo1">Yes</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="letgo2" name="letGo" value="no">
+                                <label for="letgo2">No</label>
+                            </div>
+                        </div>
+                        <textarea id="letGoReason" name="letGoReason" placeholder="If yes, what was the reason given?" style="margin-top: 10px;"></textarea>
+                    </div>
+                </div>
+
+                <!-- Challenges & Goals -->
+                <div class="section">
+                    <h2 class="section-title">Challenges & Goals</h2>
+                    
+                    <div class="form-group">
+                        <label for="biggestChallenge">11. What's your BIGGEST challenge with appointment setting right now? (Be specific) *</label>
+                        <textarea id="biggestChallenge" name="biggestChallenge" required placeholder="e.g., I struggle with objection handling when prospects say they're not interested..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>12. On a scale of 1-10, how confident are you in your appointment setting skills? *</label>
+                        <div class="scale-group">
+                            <div class="scale-item">
+                                <input type="radio" id="conf1" name="confidence" value="1" required>
+                                <label for="conf1">1</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf2" name="confidence" value="2">
+                                <label for="conf2">2</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf3" name="confidence" value="3">
+                                <label for="conf3">3</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf4" name="confidence" value="4">
+                                <label for="conf4">4</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf5" name="confidence" value="5">
+                                <label for="conf5">5</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf6" name="confidence" value="6">
+                                <label for="conf6">6</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf7" name="confidence" value="7">
+                                <label for="conf7">7</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf8" name="confidence" value="8">
+                                <label for="conf8">8</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf9" name="confidence" value="9">
+                                <label for="conf9">9</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="conf10" name="confidence" value="10">
+                                <label for="conf10">10</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>13. What specific skills do you want to improve? (Check all that apply) *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill1" name="skills" value="tonality">
+                                <label for="skill1">Tonality and voice control</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill2" name="skills" value="objection-handling">
+                                <label for="skill2">Objection handling</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill3" name="skills" value="script-delivery">
+                                <label for="skill3">Script delivery</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill4" name="skills" value="qualifying">
+                                <label for="skill4">Qualifying prospects</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill5" name="skills" value="closing">
+                                <label for="skill5">Closing for the appointment</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill6" name="skills" value="mindset">
+                                <label for="skill6">Mindset and confidence</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill7" name="skills" value="finding-offers">
+                                <label for="skill7">Finding and landing offers</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="skill8" name="skills" value="other">
+                                <label for="skill8">Other</label>
+                            </div>
+                        </div>
+                        <input type="text" id="skillsOther" name="skillsOther" placeholder="If other, please specify" style="margin-top: 10px;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="success90Days">14. What does SUCCESS look like for you 90 days from now? (Be specific - income goals, appointments booked per week, offers you want to work with, etc.) *</label>
+                        <textarea id="success90Days" name="success90Days" required placeholder="e.g., I want to be booking 25+ qualified appointments per week, earning $8K/month, and working with a high-ticket coaching offer..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="perfectExperience">15. What would make this mentorship a 10/10 experience for you? *</label>
+                        <textarea id="perfectExperience" name="perfectExperience" required placeholder="e.g., Weekly call reviews, quick response time to questions, accountability..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Commitment & Availability -->
+                <div class="section">
+                    <h2 class="section-title">Commitment & Availability</h2>
+                    
+                    <div class="form-group">
+                        <label>16. How many hours per week can you realistically dedicate to improving your setting skills? *</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="hours1" name="hoursPerWeek" value="5-10" required>
+                                <label for="hours1">5-10 hours</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="hours2" name="hoursPerWeek" value="10-20">
+                                <label for="hours2">10-20 hours</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="hours3" name="hoursPerWeek" value="20-30">
+                                <label for="hours3">20-30 hours</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="hours4" name="hoursPerWeek" value="30-plus">
+                                <label for="hours4">30+ hours (full-time)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability">17. What days/times work best for your 1-2-1 coaching calls with me? (List your availability) *</label>
+                        <textarea id="availability" name="availability" required placeholder="e.g., Mondays and Wednesdays 2-5pm EST, Fridays after 6pm EST..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="obstacles">18. Is there anything that might prevent you from fully committing to this program? (Travel, work schedule, family commitments, etc.)</label>
+                        <textarea id="obstacles" name="obstacles" placeholder="Be honest - this helps me support you better..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Optional Section -->
+                <div class="section">
+                    <h2 class="section-title">Optional (But Highly Recommended)</h2>
+                    
+                    <div class="form-group">
+                        <label for="callRecording">19. Upload a recording of one of your recent calls (if you have one - this helps me assess your current level)</label>
+                        <div class="file-upload" onclick="document.getElementById('callRecording').click()">
+                            <input type="file" id="callRecording" name="callRecording" accept="audio/*,video/*,.mp3,.mp4,.wav">
+                            <span class="file-upload-label">📁 Click to upload audio/video file</span>
+                        </div>
+                        <input type="text" id="callRecordingLink" name="callRecordingLink" placeholder="Or paste a link to your recording (Google Drive, Dropbox, etc.)" style="margin-top: 10px;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="videoIntro">20. Record a 60-second video introducing yourself and telling me why you joined The Muslim Setter Circle</label>
+                        <input type="text" id="videoIntro" name="videoIntro" placeholder="Paste link to your Loom/video here (e.g., loom.com/share/...)">
+                    </div>
+                </div>
+
+                <!-- Final Question -->
+                <div class="section">
+                    <h2 class="section-title">Final Question</h2>
+                    
+                    <div class="form-group">
+                        <label>21. On a scale of 1-10, how committed are you to becoming a top 1% setter? *</label>
+                        <div class="scale-group">
+                            <div class="scale-item">
+                                <input type="radio" id="commit1" name="commitment" value="1" required>
+                                <label for="commit1">1</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit2" name="commitment" value="2">
+                                <label for="commit2">2</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit3" name="commitment" value="3">
+                                <label for="commit3">3</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit4" name="commitment" value="4">
+                                <label for="commit4">4</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit5" name="commitment" value="5">
+                                <label for="commit5">5</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit6" name="commitment" value="6">
+                                <label for="commit6">6</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit7" name="commitment" value="7">
+                                <label for="commit7">7</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit8" name="commitment" value="8">
+                                <label for="commit8">8</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit9" name="commitment" value="9">
+                                <label for="commit9">9</label>
+                            </div>
+                            <div class="scale-item">
+                                <input type="radio" id="commit10" name="commitment" value="10">
+                                <label for="commit10">10</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="commitmentHoldback">If you selected anything below a 10, what's holding you back from full commitment?</label>
+                        <textarea id="commitmentHoldback" name="commitmentHoldback" placeholder="Be honest..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">I'm Ready - Let's Do This 🚀</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('intakeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect all form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Handle regular inputs
+            for (let [key, value] of formData.entries()) {
+                if (key === 'skills') {
+                    if (!data[key]) data[key] = [];
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Save to memory (in a real scenario, this would be sent to a server)
+            const responses = JSON.stringify(data, null, 2);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('intakeForm').style.display = 'none';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Log the data (in production, you'd send this to your backend)
+            console.log('Form Data:', responses);
+            
+            // Optional: Download as text file for the user
+            const blob = new Blob([responses], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'my-setter-profile.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        });
+
+        // File upload display
+        document.getElementById('callRecording').addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                const label = e.target.parentElement.querySelector('.file-upload-label');
+                label.textContent = '✅ ' + fileName;
+            }
+        });
+    </script>
+</body>
+</html>
